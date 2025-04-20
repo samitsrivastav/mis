@@ -1,4 +1,4 @@
-const list = document.getElementById("weeklyList");
+const tableBody = document.querySelector("#weeklyTable tbody");
 
 function getRecentIncidents() {
   const data = JSON.parse(localStorage.getItem("incidents") || "[]");
@@ -10,7 +10,6 @@ function getRecentIncidents() {
 
 function displayIncidents() {
   const recent = getRecentIncidents();
-  const tableBody = document.querySelector("#weeklyTable tbody");
   tableBody.innerHTML = "";
 
   if (recent.length === 0) {
@@ -31,3 +30,5 @@ function displayIncidents() {
     tableBody.appendChild(row);
   });
 }
+
+displayIncidents();
