@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +7,13 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
+  <header class="header">
+    <img src="https://via.placeholder.com/100x50?text=🔥+FD+Logo" class="logo-left" />
     <h1>🚒 Fire Department MIS - Report</h1>
+    <img src="https://via.placeholder.com/100x50?text=🏢+Company+Logo" class="logo-right" />
+  </header>
+
+  <div class="container">
     <div class="form-card">
       <h2>📋 Report Incident</h2>
       <form id="incidentForm">
@@ -17,12 +21,19 @@
         <input type="text" name="area" placeholder="Area Affected" required />
         <input type="text" name="type" placeholder="Type of Fire (e.g. Electrical, Forest)" required />
         <input type="number" name="casualties" placeholder="Number of Casualties" required />
+        <input type="time" name="incidentTime" required />
         <input type="text" name="equipment" placeholder="Equipment Used (comma separated)" required />
+        <label>📷 Upload Photos</label>
+        <input type="file" accept="image/*" multiple />
+        <label>🎥 Upload Videos</label>
+        <input type="file" accept="video/*" multiple />
         <button type="submit">Submit Incident</button>
       </form>
-      <a href="weekly-report.html" class="link-btn">📅 View Incidents This Week</a>
+      <a href="report.html" class="link-btn">📊 View Reports</a>
     </div>
   </div>
+
+  <footer>Created by GM Solutions</footer>
   <script src="script.js"></script>
 </body>
 </html>
