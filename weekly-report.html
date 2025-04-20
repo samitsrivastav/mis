@@ -10,9 +10,27 @@
   <div class="container">
     <h1>📅 Weekly Incident Report</h1>
     <div class="dashboard-card">
-      <ul id="weeklyList">
-        <li class="empty">Loading incidents...</li>
-      </ul>
+     <div class="dashboard-card">
+  <div class="table-wrapper">
+    <table class="incident-table" id="weeklyTable">
+      <thead>
+        <tr>
+          <th>📍 Location</th>
+          <th>🌆 Area</th>
+          <th>🔥 Type</th>
+          <th>🧍 Casualties</th>
+          <th>🧯 Equipment</th>
+          <th>🕒 Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="6" class="empty">Loading incidents...</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <a href="index.html" class="link-btn">🔙 Back to Reporting</a>
+</div>
+
       <a href="index.html" class="link-btn">🔙 Back to Reporting</a>
     </div>
   </div>
