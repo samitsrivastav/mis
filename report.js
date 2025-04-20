@@ -1,34 +1,53 @@
-const tableBody = document.querySelector("#weeklyTable tbody");
+const tableBody = document.querySelector("#reportTable tbody");
 
-function getRecentIncidents() {
+function getFilteredIncidents(filter) {
   const data = JSON.parse(localStorage.getItem("incidents") || "[]");
-  const oneWeekAgo = new Date();
-  oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+  const now = new Date();
 
-  return data.filter(item => new Date(item.timestamp) >= oneWeekAgo);
+  return data.filter(item => {
+    const incidentDate = new Date(item.timestamp);
+    if (filter === "daily") {
+      return incidentDate.toDateString() === now.toDateString();
+    }
+    if (filter === "weekly") {
+      const oneWeekAgo = new Date();
+      oneWeekAgo.setDate(now.getDate() - 7);
+      return incidentDate >= oneWeekAgo;
+    }
+    if (filter === "monthly") {
+      return incidentDate.getMonth() === now.getMonth() && incidentDate.getFullYear() === now.getFullYear();
+    }
+    if (filter === "yearly") {
+      return incidentDate.getFullYear() === now.getFullYear();
+    }
+    return true;
+  });
 }
 
-function displayIncidents() {
-  const recent = getRecentIncidents();
+function loadIncidents(filter = "weekly", city = null) {
+  const incidents = getFilteredIncidents(filter).reverse();
   tableBody.innerHTML = "";
 
-  if (recent.length === 0) {
-    tableBody.innerHTML = `<tr><td colspan="6" class="empty">No incidents in the last 7 days.</td></tr>`;
+  const filtered = city ? incidents.filter(i => i.location === city) : incidents;
+
+  if (filtered.length === 0) {
+    tableBody.innerHTML = `<tr><td colspan="7" class="empty">No incidents found.</td></tr>`;
     return;
   }
 
-  recent.reverse().forEach(incident => {
+  filtered.forEach(incident => {
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td>${incident.location}</td>
+      <td class="clickable" onclick="loadIncidents('${filter}', '${incident.location}')">${incident.location}</td>
       <td>${incident.area}</td>
       <td>${incident.type}</td>
       <td>${incident.casualties}</td>
       <td>${incident.equipment}</td>
-      <td>${new Date(incident.timestamp).toLocaleString()}</td>
+      <td>${incident.incidentTime || '-'}</td>
+      <td>${new Date(incident.timestamp).toLocaleDateString()}</td>
     `;
     tableBody.appendChild(row);
   });
 }
 
-displayIncidents();
+loadIncidents(); // Load weekly by default
