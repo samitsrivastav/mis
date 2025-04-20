@@ -1,104 +1,35 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  body {
-    background: #f9f9f9;
-    padding: 2rem;
-    color: #333;
-  }
-  
-  .container {
-    max-width: 1100px;
-    margin: auto;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #c53030;
-    margin-bottom: 2rem;
-  }
-  
-  .grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-  
-  .form-card,
-  .dashboard-card {
-    flex: 1 1 45%;
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-    color: #444;
-  }
-  
-  form input,
-  form button {
-    display: block;
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-  }
-  
-  form button {
-    background-color: #c53030;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  form button:hover {
-    background-color: #a81f1f;
-  }
-  
-  ul {
-    list-style: none;
-  }
-  
-  ul li {
-    background: #f1f1f1;
-    padding: 1rem;
-    border-radius: 6px;
-    margin-bottom: 0.75rem;
-  }
-  
-  ul li.empty {
-    text-align: center;
-    color: #aaa;
-  }
-  
-  @media (max-width: 768px) {
-    .grid {
-      flex-direction: column;
-    }
-  }
-  .link-btn {
-    display: inline-block;
-    margin-top: 1rem;
-    background: #3182ce;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: background 0.3s;
-  }
-  
-  .link-btn:hover {
-    background: #2c5282;
-  }
-  
-  
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.incident-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.incident-table thead {
+  background-color: #c53030;
+  color: white;
+}
+
+.incident-table th,
+.incident-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.incident-table tr:hover {
+  background-color: #fff5f5;
+  transition: background 0.2s ease;
+}
+
+.incident-table td.empty {
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+}
