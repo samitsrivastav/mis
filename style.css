@@ -22,6 +22,18 @@ h1 {
   margin-bottom: 2rem;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-left,
+.logo-right {
+  width: 100px;
+  height: auto;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -30,7 +42,7 @@ h1 {
 
 .form-card,
 .dashboard-card {
-  flex: 1 1 45%;
+  flex: 1 1 100%;
   background: #fff;
   padding: 1.5rem;
   border-radius: 8px;
@@ -65,6 +77,21 @@ form button:hover {
   background-color: #a81f1f;
 }
 
+.link-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #3182ce;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.link-btn:hover {
+  background: #2c5282;
+}
+
 ul {
   list-style: none;
 }
@@ -81,28 +108,25 @@ ul li.empty {
   color: #aaa;
 }
 
-@media (max-width: 768px) {
-  .grid {
-    flex-direction: column;
-  }
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.link-btn {
-  display: inline-block;
-  margin-top: 1rem;
-  background: #3182ce;
-  color: #fff;
+.filter-buttons button {
   padding: 0.5rem 1rem;
-  text-decoration: none;
+  border: none;
+  background: #edf2f7;
+  color: #333;
+  cursor: pointer;
   border-radius: 6px;
-  transition: background 0.3s;
+  transition: background 0.2s;
 }
 
-.link-btn:hover {
-  background: #2c5282;
+.filter-buttons button:hover {
+  background: #cbd5e0;
 }
-
-/* 🔥 Weekly Report Table Styles – Sexy Dashboard Look */
 
 .table-wrapper {
   overflow-x: auto;
@@ -138,4 +162,17 @@ ul li.empty {
   text-align: center;
   color: #aaa;
   font-style: italic;
+}
+
+.clickable {
+  color: #2b6cb0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
 }
