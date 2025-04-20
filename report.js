@@ -10,25 +10,24 @@ function getRecentIncidents() {
 
 function displayIncidents() {
   const recent = getRecentIncidents();
-  list.innerHTML = "";
+  const tableBody = document.querySelector("#weeklyTable tbody");
+  tableBody.innerHTML = "";
 
   if (recent.length === 0) {
-    list.innerHTML = `<li class="empty">No incidents in the last 7 days.</li>`;
+    tableBody.innerHTML = `<tr><td colspan="6" class="empty">No incidents in the last 7 days.</td></tr>`;
     return;
   }
 
   recent.reverse().forEach(incident => {
-    const entry = document.createElement("li");
-    entry.innerHTML = `
-      <strong>📍 Location:</strong> ${incident.location}<br>
-      <strong>🌆 Area:</strong> ${incident.area}<br>
-      <strong>🔥 Type:</strong> ${incident.type}<br>
-      <strong>🧍 Casualties:</strong> ${incident.casualties}<br>
-      <strong>🧯 Equipment:</strong> ${incident.equipment}<br>
-      <span style="font-size: 0.85rem; color: gray;">🕒 ${new Date(incident.timestamp).toLocaleString()}</span>
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${incident.location}</td>
+      <td>${incident.area}</td>
+      <td>${incident.type}</td>
+      <td>${incident.casualties}</td>
+      <td>${incident.equipment}</td>
+      <td>${new Date(incident.timestamp).toLocaleString()}</td>
     `;
-    list.appendChild(entry);
+    tableBody.appendChild(row);
   });
 }
-
-displayIncidents();
