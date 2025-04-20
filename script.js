@@ -8,6 +8,7 @@ form.addEventListener("submit", function (e) {
     area: form.area.value,
     type: form.type.value,
     casualties: form.casualties.value,
+    incidentTime: form.incidentTime.value,
     equipment: form.equipment.value,
     timestamp: new Date().toISOString(),
   };
