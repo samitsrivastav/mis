@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Incident Reports</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <img src="https://via.placeholder.com/100x50?text=🔥+FD+Logo" class="logo-left" />
+    <h1>📊 Incident Reports</h1>
+    <img src="https://via.placeholder.com/100x50?text=🏢+Company+Logo" class="logo-right" />
+  </header>
+
+  <div class="container">
+    <div class="dashboard-card">
+      <div class="filter-buttons">
+        <button onclick="loadIncidents('daily')">📅 Daily</button>
+        <button onclick="loadIncidents('weekly')">🗓 Weekly</button>
+        <button onclick="loadIncidents('monthly')">📆 Monthly</button>
+        <button onclick="loadIncidents('yearly')">📈 Yearly</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="incident-table" id="reportTable">
+          <thead>
+            <tr>
+              <th>📍 Location</th>
+              <th>🌆 Area</th>
+              <th>🔥 Type</th>
+              <th>🧍 Casualties</th>
+              <th>🧯 Equipment</th>
+              <th>⏰ Time</th>
+              <th>🕒 Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="7" class="empty">Loading incidents...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <a href="index.html" class="link-btn">🔙 Back to Reporting</a>
+    </div>
+  </div>
+
+  <footer>Created by GM Solutions</footer>
+  <script src="report.js"></script>
+</body>
+</html>
